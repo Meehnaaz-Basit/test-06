@@ -1,6 +1,11 @@
 let clickCount = 0;
-
-// show loading spinner function
+const spinnerDiv = document.createElement("div");
+spinnerDiv.classList = "text-center mt-10";
+spinnerDiv.innerHTML = `
+    <span class="loading loading-ring loading-lg"></span>
+  `;
+const postContainer = document.getElementById("post-container");
+// loading function
 const showLoadingSpinner = () => {
   const spinnerDiv = document.createElement("div");
   const postContainer = document.getElementById("post-container");
@@ -11,28 +16,24 @@ const showLoadingSpinner = () => {
   postContainer.appendChild(spinnerDiv);
   return spinnerDiv;
 };
-
-// hide loading spinner function
-
-const hideLoadingSpinner = (spinnerDiv) => {
-  setTimeout(() => {
-    const postContainer = document.getElementById("post-container");
-    postContainer.removeChild(spinnerDiv);
-  }, 2000);
-};
-
+//
 const allPost = async () => {
+  // loading show
+  const spinner = showLoadingSpinner();
   const request = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const data = await request.json();
   const posts = data.posts;
   const postContainer = document.getElementById("post-container");
-
-  posts.forEach((post) => {
-    const postDiv = document.createElement("div");
-    postDiv.classList = "bg-[#F3F3F5] lg:p-12 p-6 rounded-3xl my-4";
-    postDiv.innerHTML = `
+  //
+  setTimeout(() => {
+    spinner.classList.add("hidden");
+    //
+    posts.forEach((post) => {
+      const postDiv = document.createElement("div");
+      postDiv.classList = "bg-[#F3F3F5] lg:p-12 p-6 rounded-3xl my-4";
+      postDiv.innerHTML = `
       <div class="flex lg:flex-row flex-col gap-5 ">
          
         <!-- left  -->
@@ -85,17 +86,18 @@ const allPost = async () => {
         </div>
       </div>
     `;
-    postContainer.appendChild(postDiv);
 
-    const markReadBtn = postDiv.querySelector("#markReadBtn");
-    const postClickedList = document.getElementById("clicked-posts-list");
-    const count = document.getElementById("count");
+      postContainer.appendChild(postDiv);
 
-    markReadBtn.addEventListener("click", () => {
-      const listPost = document.createElement("div");
-      listPost.classList =
-        "bg-white p-4 rounded-xl flex justify-between gap-5 my-3";
-      listPost.innerHTML = `
+      const markReadBtn = postDiv.querySelector("#markReadBtn");
+      const postClickedList = document.getElementById("clicked-posts-list");
+      const count = document.getElementById("count");
+
+      markReadBtn.addEventListener("click", () => {
+        const listPost = document.createElement("div");
+        listPost.classList =
+          "bg-white p-4 rounded-xl flex justify-between gap-5 my-3";
+        listPost.innerHTML = `
         <p class="w-[85%] font-mulish font-bold text-our-primary">
           ${post.title}
         </p>
@@ -104,11 +106,14 @@ const allPost = async () => {
           <span>${post.view_count}</span>
         </div>
       `;
-      postClickedList.appendChild(listPost);
-      clickCount = clickCount + 1;
-      count.innerText = clickCount;
+        postClickedList.appendChild(listPost);
+        clickCount = clickCount + 1;
+        count.innerText = clickCount;
+      });
     });
-  });
+    //
+  }, 3000);
+  //
 };
 
 // latest post fetch
@@ -161,6 +166,9 @@ const latestPost = async () => {
 // search functionality
 const searchCategoryBtn = document.getElementById("searchCategory");
 searchCategoryBtn.addEventListener("click", async () => {
+  //
+
+  //
   const searchInput = document.getElementById("searchInput");
   const searchInputValue = searchInput.value;
   const searchValueLowerCase = searchInputValue.toLowerCase();
