@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH Assignment 06</title>
+    <!-- daisy ui & tailwind cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font icon -->
+    <script
+      src="https://kit.fontawesome.com/ecf551110a.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom css -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#000",
+              "our-primary": "#12132D",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .font-mulish {
+        font-family: "Mulish", sans-serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="font-mulish pt-2">
+      <div class="container mx-auto max-w-[1200px] w-[96%] lg-w[84%]">
+        <!--  -->
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li><a>Home</a></li>
+                <li><a>Edit</a></li>
+                <li><a>User</a></li>
+                <li><a>Country</a></li>
+              </ul>
+            </div>
+            <a class="text-4xl text-our-primary font-black">ReTro</a>
+          </div>
+          <!-- <div class="navbar-end hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a>Item 1</a></li>
+              <li>
+                <details>
+                  <summary>Parent</summary>
+                  <ul class="p-2">
+                    <li><a>Submenu 1</a></li>
+                    <li><a>Submenu 2</a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a>Item 3</a></li>
+            </ul>
+          </div> -->
+          <div class="navbar-end">
+            <!--  -->
+            <div class="hidden lg:flex gap-2 mr-4">
+              <div
+                class="tooltip tooltip-bottom w-12 h-12 rounded-full bg-[#12132D08] border-[#0307121A] border-2"
+                data-tip="Home"
+              >
+                <i class="fa-solid fa-house mt-3 text-[#12132D99]"></i>
+              </div>
+              <div
+                class="tooltip tooltip-bottom w-12 h-12 rounded-full bg-[#12132D08] border-[#0307121A] border-2"
+                data-tip="Edit"
+              >
+                <i class="fa-solid fa-pen mt-3 text-[#12132D99]"></i>
+              </div>
+              <div
+                class="tooltip tooltip-bottom w-12 h-12 rounded-full bg-[#12132D08] border-[#0307121A] border-2"
+                data-tip="User"
+              >
+                <i class="fa-solid fa-user-plus mt-3 text-[#12132D99]"></i>
+              </div>
+              <div
+                class="tooltip tooltip-bottom w-12 h-12 rounded-full bg-[#12132D08] border-[#0307121A] border-2"
+                data-tip="Country"
+              >
+                <i class="fa-regular fa-flag mt-3 text-[#12132D99]"></i>
+              </div>
+            </div>
+            <!--  -->
+            <a
+              class="btn bg-[#797DFC] text-white text-xl font-semibold rounded-full px-6"
+              >Sign In</a
+            >
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </header>
+    <main>
+      <!-- ======== banner ======= -->
+      <section class="my-6 font-mulish">
+        <div class="container mx-auto max-w-[1200px] w-[96%] lg-w[84%]">
+          <!--  -->
+          <div
+            class="lg:min-h-[70vh] bg-our-primary rounded-2xl bg-[url('images/bgbanner.png')] bg-no-repeat bg-cover bg-bottom p-10"
+          >
+            <div
+              class="flex lg:flex-row flex-col justify-between items-center lg:p-10"
+            >
+              <!--  -->
+              <div class="basis-1/2 lg:text-left text-center">
+                <h1 class="text-white font-black lg:text-[64px] text-[40px]">
+                  Welcome to the <br /><span class="text-[#797DFC]">ReTro</span>
+                  Forum
+                </h1>
+                <p class="text-[#FFFFFFCC] text-xl font-medium my-4 lg:pr-20">
+                  Share your favorite opinion and win and wp forum coffee mug!
+                </p>
+                <div
+                  class="bg-white inline-flex justify-between p-2 border-0 rounded-full mt-6"
+                >
+                  <input
+                    id="searchInput"
+                    class="p-2 focus:outline-none rounded-full bg-transparent"
+                    type="text"
+                    placeholder="Search here anything"
+                  />
+                  <button
+                    id="searchCategory"
+                    class="bg-[#797DFC] text-white text-xl font-bold px-6 py-2 rounded-full"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+              <!--  -->
+              <div
+                class="bg-white h-min *:text-[#12132DCC] *:lg:text-2xl *:font-semibold lg:basis-1/3 lg:p-10 rounded-2xl w-full lg:mt-0 mt-6 p-4"
+              >
+                <ul class="lg:space-y-5">
+                  <li class="flex justify-between">
+                    <span>Registered Users</span>
+                    <span>01</span>
+                  </li>
+                  <li class="flex justify-between">
+                    <span>Forum</span>
+                    <span>05</span>
+                  </li>
+                  <li class="flex justify-between">
+                    <span>Topics</span>
+                    <span>01</span>
+                  </li>
+                  <li class="flex justify-between">
+                    <span>Replies</span>
+                    <span>01</span>
+                  </li>
+                </ul>
+              </div>
+              <!--  -->
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </section>
+      <!-- ====== let's discuss ====== -->
+      <section class="let-discuss lg:my-10 lg:py-10 py-4">
+        <div class="container mx-auto max-w-[1200px] w-[90%] lg-w[84%]">
+          <!--  -->
+          <div class="heading lg:w-[50%] mx-auto text-center space-y-3">
+            <h3
+              class="font-mulish font-black lg:text-[40px] text-3xl text-our-primary"
+            >
+              Lets's Discuss
+            </h3>
+            <p class="font-inter text[#12132D99]">
+              Yes, you can run unit tests and view the results directly within
+              the app. The integrated testing features allow for a streamlined .
+            </p>
+          </div>
+          <!--  -->
+
+          <!--  -->
+          <div class="flex lg:flex-row flex-col gap-5 mt-8">
+            <!-- left box -->
+            <div class="lg:basis-8/12" id="post-container">
+              <!-- loading  -->
+              <!-- <div class="text-center mt-10">
+                <span class="loading loading-ring loading-lg"></span>
+              </div> -->
+              <!--  -->
+              <!--  -->
+
+              <!--  -->
+            </div>
+            <!-- right box -->
+            <div
+              class="lg:basis-4/12 bg-[#12132D0D] h-min mt-4 rounded-2xl p-6"
+            >
+              <div>
+                <!-- title -->
+                <div class="flex justify-between gap-4">
+                  <div>
+                    <h3 class="font-mulish font-extrabold text-xl">Title</h3>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <img src="images/tick.png" alt="" />
+                    <h6 class="text-[#12132D99] font-inter">
+                      Mark as count (<span id="count">0</span>)
+                    </h6>
+                  </div>
+                </div>
+                <!-- list -->
+                <div id="clicked-posts-list" class="py-2">
+                  <!--  -->
+                  <!-- <div
+                    class="bg-white p-4 rounded-xl flex justify-between gap-5 mt-3"
+                  >
+                    <p class="w-[85%] font-mulish font-bold text-our-primary">
+                      Lorem ipsum dolor sit amet elit. Laborum.
+                    </p>
+                    <div class="flex items-center gap-2">
+                      <img src="images/view.png" alt="" />
+                      <span>200</span>
+                    </div>
+                  </div> -->
+                  <!--  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ========== latest post ========== -->
+      <section class="my-6 font-mulish lg:my-10 lg:py-10 py-4">
+        <div class="container mx-auto max-w-[1200px] w-[90%] lg-w[84%]">
+          <!--  -->
+          <div class="heading lg:w-[50%] mx-auto text-center space-y-3">
+            <h3
+              class="font-mulish font-black lg:text-[40px] text-3xl text-our-primary"
+            >
+              Latest Posts
+            </h3>
+            <p class="font-inter text[#12132D99]">
+              Yes, you can run unit tests and view the results directly within
+              the app. The integrated testing features allow for a streamlined .
+            </p>
+          </div>
+          <!--  -->
+          <div
+            class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mt-10"
+            id="latest-post"
+          >
+            <!--  -->
+            <!-- <div class="card bg-base-100 shadow-xl">
+              <figure class="p-5">
+                <img
+                  src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                  alt="Shoes"
+                  class="rounded-xl"
+                />
+              </figure>
+              <div class="card-body space-y-2">
+                <div class="flex gap-4">
+                  <img src="images/date.png" alt="" />
+                  <span>29 January 2024</span>
+                </div>
+                <h2 class="card-title text-our-primary text-lg font-black">
+                  What will a mars habitat force that impact in our daily
+                  life!!!
+                </h2>
+                <p class="text-[#12132D99]">
+                  Yes, you can run unit tests and view the results directly
+                  within the app.
+                </p>
+                <div>
+                  <div>
+                    <img src="" alt="" />
+                  </div>
+                  <div>
+                    <h3 class="text-our-primary font-extrabold">
+                      Cameron Williamson
+                    </h3>
+                    <p class="text-[#12132D99]">Unknown</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!--  -->
+          </div>
+          <!--  -->
+        </div>
+      </section>
+    </main>
+    <footer
+      class="footer footer-center py-16 bg-primary text-primary-content bg-[#12132D0D]"
+    >
+      <div class="container mx-auto max-w-[1200px] w-[90%] lg-w[84%]">
+        <aside class="lg:w-[40%] space-y-6">
+          <h1 class="text-our-primary text-4xl font-black">ReTro</h1>
+          <p class="font-medium text-[#12132DB3]">
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC
+          </p>
+        </aside>
+        <div class="*:text-our-primary flex *:text-2xl gap-4 pt-10">
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+        <div class="border w-full mt-10"></div>
+      </div>
+      <p class="text-[#12132D80]">Copyright © 2024 - All right reserved</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
